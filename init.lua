@@ -9,8 +9,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     error('Error cloning lazy.nvim:\n' .. out)
   end
 end 
-vim.opt.rtp:prepend(lazypath)
 
+vim.opt.rtp:prepend(lazypath)
+vim.opt.clipboard = "unnamedplus"
 
 require('lazy').setup({
    'hrsh7th/nvim-cmp',
@@ -27,5 +28,6 @@ require('lazy').setup({
    require 'plugins.alpha',
    require 'plugins.indent',
    require 'plugins.misc',
-   require 'plugins.terminal'
+   require 'plugins.terminal',
+   require 'plugins.formatter'
 })
